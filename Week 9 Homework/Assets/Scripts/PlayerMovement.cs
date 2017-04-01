@@ -193,7 +193,6 @@ public class PlayerMovement : MonoBehaviour {
 		anim.SetBool ("Idle", idleAnim);
 		anim.SetBool ("Dashing", dashingAnim);
 		anim.SetBool ("Jumping", jumpingAnim);
-		anim.SetBool ("Falling", fallingAnim);
 		anim.SetBool ("Floating", floatingAnim);
 
 		if (inAir == false && grounded == true && dashing == false) {

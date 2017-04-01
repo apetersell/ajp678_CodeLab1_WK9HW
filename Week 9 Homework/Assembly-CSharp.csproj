@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BlockShtuffs.cs" />
+     <Compile Include="Assets\Scripts\DynamicCamera.cs" />
      <Compile Include="Assets\Scripts\FinalScoreDisplay.cs" />
      <Compile Include="Assets\Scripts\Hitbox.cs" />
      <Compile Include="Assets\Scripts\MovingPlatform.cs" />
