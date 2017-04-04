@@ -20,7 +20,8 @@ public class PlayerMovement : MonoBehaviour {
 	public bool canHover;
 
 	public float shotDirection = 1;
-	public float shotSpeed;
+	public float shotXSpeed;
+	public float shotYSpeed;
 	public float shotScale; 
 	public float shotDuration; 
 	public float shotDamage;
@@ -158,7 +159,8 @@ public class PlayerMovement : MonoBehaviour {
 			GetComponent<Weapon> ().fire (shotDirection, 
 				new Vector3 (shotDirection, 0, 0), 
 				new Vector3 (shotScale, shotScale, shotScale), 
-				shotSpeed, 
+				shotXSpeed,
+				shotYSpeed,
 				shotDuration,
 				shotDamage,
 				shotColor);

@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour {
 
-	public virtual void fire(float direction, Vector3 modPos, Vector3 size, float speed, float survive, float damage, string color){ 
+	public virtual void fire
+ 	(float direction, 
+		Vector3 modPos, 
+		Vector3 size, 
+		float Xspeed, 
+		float Yspeed,
+		float survive, 
+		float damage, 
+		string color){ 
 
 		GameObject shot = Instantiate(Resources.Load("Prefabs/BladeBeam")) as GameObject;
 		shot.transform.position = transform.position + modPos;
-		shot.GetComponent<Rigidbody2D> ().velocity = new Vector2 ((direction * speed), shot.GetComponent<Rigidbody2D> ().velocity.y);
+		shot.GetComponent<Rigidbody2D> ().velocity = new Vector2 ((direction * Xspeed), direction * Yspeed);
 		shot.GetComponent<BladeBeamBehavior> ().beamLimit = survive;
 		shot.GetComponent<BladeBeamBehavior> ().beamDamage = damage;
 		shot.transform.localScale = size; 

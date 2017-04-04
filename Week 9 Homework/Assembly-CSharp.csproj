@@ -46,7 +46,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\BladeBeamBehavior.cs" />
      <Compile Include="Assets\Scripts\BlockShtuffs.cs" />
      <Compile Include="Assets\Scripts\DynamicCamera.cs" />
      <Compile Include="Assets\Scripts\FinalScoreDisplay.cs" />
@@ -60,10 +59,11 @@
      <Compile Include="Assets\Scripts\StackUI.cs" />
      <Compile Include="Assets\Scripts\StageBuilder.cs" />
      <Compile Include="Assets\Scripts\TokenSpawner.cs" />
-     <Compile Include="Assets\Scripts\Weapon.cs" />
- <Reference Include="UnityEngine.Purchasing">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
- </Reference>
+     <Compile Include="Assets\Scripts\Weapons\BigShot.cs" />
+     <Compile Include="Assets\Scripts\Weapons\BladeBeamBehavior.cs" />
+     <Compile Include="Assets\Scripts\Weapons\LongShot.cs" />
+     <Compile Include="Assets\Scripts\Weapons\SpreadShot.cs" />
+     <Compile Include="Assets\Scripts\Weapons\Weapon.cs" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
@@ -75,9 +75,6 @@
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
