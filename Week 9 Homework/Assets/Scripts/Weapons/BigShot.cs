@@ -11,10 +11,11 @@ public class BigShot : Weapon {
 		float Xspeed, 
 		float Yspeed,
 		float survive, 
-		float damage, 
-		string color){ 
+		int damage, 
+		string color,
+		int owner){ 
 
-		base.fire (direction, modPos, new Vector3 (0.5133314f, 0.5133314f, 0.5133314f), 2.5f, Yspeed, 60, 5, "Green");
+		base.fire (direction, modPos, new Vector3 (0.5133314f, 0.5133314f, 0.5133314f), 2.5f, Yspeed, 60, 5, "Green", owner);
 
 	}
 }

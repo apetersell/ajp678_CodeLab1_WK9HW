@@ -6,7 +6,8 @@ public class BladeBeamBehavior : MonoBehaviour {
 
 	public float beamTimer; 
 	public float beamLimit; 
-	public float beamDamage;
+	public int beamDamage;
+	public int owner;
 	GameObject bossMeter;  
 
 

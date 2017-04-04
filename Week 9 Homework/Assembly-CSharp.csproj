@@ -48,15 +48,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BlockShtuffs.cs" />
      <Compile Include="Assets\Scripts\DynamicCamera.cs" />
-     <Compile Include="Assets\Scripts\FinalScoreDisplay.cs" />
-     <Compile Include="Assets\Scripts\Hitbox.cs" />
      <Compile Include="Assets\Scripts\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\RPSSystem.cs" />
-     <Compile Include="Assets\Scripts\RPSUI.cs" />
-     <Compile Include="Assets\Scripts\ScoreDisplay.cs" />
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
-     <Compile Include="Assets\Scripts\StackUI.cs" />
      <Compile Include="Assets\Scripts\StageBuilder.cs" />
      <Compile Include="Assets\Scripts\TokenSpawner.cs" />
      <Compile Include="Assets\Scripts\Weapons\BigShot.cs" />

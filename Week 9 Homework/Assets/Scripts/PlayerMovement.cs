@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 	 
@@ -19,12 +20,13 @@ public class PlayerMovement : MonoBehaviour {
 	private bool canJump;
 	public bool canHover;
 
+	public int health = 100;
 	public float shotDirection = 1;
 	public float shotXSpeed;
 	public float shotYSpeed;
 	public float shotScale; 
 	public float shotDuration; 
-	public float shotDamage;
+	public int shotDamage;
 	public string shotColor;
 
 
@@ -43,8 +45,8 @@ public class PlayerMovement : MonoBehaviour {
 	public GameObject hitbox;
 	Animator anim;
 //	RPSSystem rps;
-//	TokenSpawner ts;
-//	GameObject tokenSpawner;
+	TokenSpawner ts;
+	GameObject tokenSpawner;
 	SpriteRenderer sr; 
 	Rigidbody2D rb; 
 //	StackUI sui;
@@ -56,8 +58,8 @@ public class PlayerMovement : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D> ();
 //		rps = GetComponent<RPSSystem> ();
 		grounded = true; 
-//		tokenSpawner = GameObject.Find ("TokenSpawner"); 
-//		ts = tokenSpawner.GetComponent<TokenSpawner> (); 
+		tokenSpawner = GameObject.Find ("TokenSpawner"); 
+		ts = tokenSpawner.GetComponent<TokenSpawner> (); 
 //		sui = GetComponent<StackUI> ();
 		anim = GetComponent<Animator> (); 
 		
@@ -163,7 +165,21 @@ public class PlayerMovement : MonoBehaviour {
 				shotYSpeed,
 				shotDuration,
 				shotDamage,
-				shotColor);
+				shotColor,
+				playerNum);
+		}
+
+		if (health <= 0) 
+		{
+			if (playerNum == 1) 
+			{
+				SceneManager.LoadScene ("Player Guy Wins");
+			}
+
+			if (playerNum == 2) 
+			{
+				SceneManager.LoadScene ("Player Gal Wins");
+			}
 		}
 	}
 
@@ -182,33 +198,43 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
-//	void OnTriggerEnter2D (Collider2D touched)
-//	{
-//		if (touched.gameObject.tag == "Paper Token")   
-//		{
-//			rps.addToStack ("Paper");
-//			sui.thirdSlotCheck ();
-////			ts.paperGone = true;
-//			Destroy (touched.gameObject); 
-//		}
-//
-//		if (touched.gameObject.tag == "Rock Token") 
-//		{
-//			rps.addToStack ("Rock");
-//			sui.thirdSlotCheck ();
-//			ts.rockGone = true;
-//			Destroy (touched.gameObject); 
-//		}
-//
-//		if (touched.gameObject.tag == "Scissors Token") 
-//		{
-//			rps.addToStack ("Scissors");
-//			sui.thirdSlotCheck ();
-//			ts.scissorsGone = true;
-//			Destroy (touched.gameObject); 
-//		}
-//
-//	}
+	void OnTriggerEnter2D (Collider2D touched)
+	{
+		if (touched.gameObject.tag == "Paper Token")   
+		{
+			Destroy (gameObject.GetComponent<Weapon> ());
+			gameObject.AddComponent<LongShot> ();
+			Destroy (touched.gameObject); 
+			ts.paperGone = true;
+		}
+
+		if (touched.gameObject.tag == "Rock Token") 
+		{
+			Destroy (gameObject.GetComponent<Weapon> ());
+			gameObject.AddComponent<BigShot> ();
+			Destroy (touched.gameObject); 
+			ts.rockGone = true;
+		}
+
+		if (touched.gameObject.tag == "Scissors Token") 
+		{
+			Destroy (gameObject.GetComponent<Weapon> ());
+			gameObject.AddComponent<SpreadShot> ();
+			Destroy (touched.gameObject); 
+			ts.scissorsGone = true;
+		}
+
+		if (touched.gameObject.tag == "Beam") 
+		{
+			BladeBeamBehavior bbb = touched.GetComponent<BladeBeamBehavior> ();
+			if (bbb.owner != playerNum) 
+			{
+				health = health - bbb.beamDamage; 
+				Destroy (touched.gameObject);
+			}
+		}
+
+	}
 
 	void animationHandler ()
 	{

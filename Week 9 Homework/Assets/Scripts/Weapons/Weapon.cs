@@ -11,14 +11,16 @@ public class Weapon : MonoBehaviour {
 		float Xspeed, 
 		float Yspeed,
 		float survive, 
-		float damage, 
-		string color){ 
+		int damage, 
+		string color,
+		int owner){ 
 
 		GameObject shot = Instantiate(Resources.Load("Prefabs/BladeBeam")) as GameObject;
 		shot.transform.position = transform.position + modPos;
 		shot.GetComponent<Rigidbody2D> ().velocity = new Vector2 ((direction * Xspeed), direction * Yspeed);
 		shot.GetComponent<BladeBeamBehavior> ().beamLimit = survive;
 		shot.GetComponent<BladeBeamBehavior> ().beamDamage = damage;
+		shot.GetComponent<BladeBeamBehavior> ().owner = owner;
 		shot.transform.localScale = size; 
 		if (direction == 1) 
 		{

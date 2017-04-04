@@ -11,10 +11,11 @@ public class LongShot : Weapon {
 		float Xspeed,
 		float Yspeed,
 		float survive, 
-		float damage, 
-		string color){ 
+		int damage, 
+		string color,
+		int owner){ 
 
-		base.fire (direction, modPos, size, 30, Yspeed, 40, 3, "Blue");
+		base.fire (direction, modPos, new Vector3 (.25f, .25f, .25f), 30, Yspeed, 40, 3, "Blue", owner);
 
 	}
 }
