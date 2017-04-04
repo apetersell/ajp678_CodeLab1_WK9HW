@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 	 
-	public float xVelocity;
-	public float yVelocity;
 	public int playerNum; 
 	public float moveSpeed;
 	public float airSpeedModifier;
@@ -21,6 +19,15 @@ public class PlayerMovement : MonoBehaviour {
 	private bool canJump;
 	public bool canHover;
 
+	public float shotDirection = 1;
+	public float shotSpeed;
+	public float shotScale; 
+	public float shotDuration; 
+	public float shotDamage;
+	public string shotColor;
+
+
+
 	public bool idleAnim = true;
 	public bool jumpingAnim;
 	public bool fallingAnim;
@@ -31,6 +38,7 @@ public class PlayerMovement : MonoBehaviour {
 	public KeyCode left; 
 	public KeyCode right;
 	public KeyCode jump;
+	public KeyCode fire;
 	public GameObject hitbox;
 	Animator anim;
 //	RPSSystem rps;
@@ -59,11 +67,9 @@ public class PlayerMovement : MonoBehaviour {
 		playerMove (left, moveSpeed * -1); 
 		playerMove (right, moveSpeed); 
 		playerJump ();
+		attack ();
 		animationHandler ();
 		//		jumpTimer = jumpValue * Time.deltaTime;
-
-		xVelocity = rb.velocity.x;
-		yVelocity = rb.velocity.y;
 
 	}
 
@@ -85,10 +91,12 @@ public class PlayerMovement : MonoBehaviour {
 			if (key == left) 
 			{
 				sr.flipX = true; 
+				shotDirection = -1;
 			}
 			if (key == right) 
 			{
 				sr.flipX = false;
+				shotDirection = 1; 
 			}
 
 		}
@@ -140,9 +148,21 @@ public class PlayerMovement : MonoBehaviour {
 			canHover = true;
 			floatingAnim = false; 
 		}
+	
+	}
 
-
-
+	void attack ()
+	{
+		if (Input.GetKeyDown(fire))
+		{
+			GetComponent<Weapon> ().fire (shotDirection, 
+				new Vector3 (shotDirection, 0, 0), 
+				new Vector3 (shotScale, shotScale, shotScale), 
+				shotSpeed, 
+				shotDuration,
+				shotDamage,
+				shotColor);
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D touched)

@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BladeBeamBehavior.cs" />
      <Compile Include="Assets\Scripts\BlockShtuffs.cs" />
      <Compile Include="Assets\Scripts\DynamicCamera.cs" />
      <Compile Include="Assets\Scripts\FinalScoreDisplay.cs" />
@@ -59,6 +60,7 @@
      <Compile Include="Assets\Scripts\StackUI.cs" />
      <Compile Include="Assets\Scripts\StageBuilder.cs" />
      <Compile Include="Assets\Scripts\TokenSpawner.cs" />
+     <Compile Include="Assets\Scripts\Weapon.cs" />
  <Reference Include="UnityEngine.Purchasing">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
